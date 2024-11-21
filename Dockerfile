@@ -4,9 +4,6 @@ FROM node:14
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to install dependencies
-COPY package.json ./
-
 # Install dependencies (including Express)
 RUN npm install
 
