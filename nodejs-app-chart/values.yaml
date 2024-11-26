@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: sherinmonbiju/nodejs-app
+  repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -37,7 +37,6 @@ securityContext: {}
 service:
   type: ClusterIP
   port: 80
-  targetPort: 3000
 
 ingress:
   enabled: false
@@ -66,12 +65,12 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: 3000
+    port: http
 
 readinessProbe:
   httpGet:
     path: /
-    port: 3000
+    port: http
 
 autoscaling:
   enabled: false
